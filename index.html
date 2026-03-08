@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Shubham Belorkar — Business Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --ink:#0a0908;--ink2:#111009;--ink3:#181614;
+  --gold:#c9973a;--gold2:#e8b84b;
+  --cream:#f0ebe0;--mist:#8a8070;
+  --border:rgba(201,151,58,.18);--borderfaint:rgba(201,151,58,.08);
+  --ff-serif:'Playfair Display',Georgia,serif;
+  --ff-sans:'Instrument Sans',sans-serif;
+  --ff-display:'Bebas Neue',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:99px}
+body{background:var(--ink);color:var(--cream);font-family:var(--ff-sans);font-weight:300;line-height:1.7;overflow-x:hidden;cursor:none}
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");opacity:.55}
+#cursor-dot{position:fixed;top:0;left:0;z-index:10000;pointer-events:none;width:8px;height:8px;border-radius:50%;background:var(--gold);transform:translate(-50%,-50%);transition:transform .1s var(--ease),width .25s,height .25s}
+#cursor-ring{position:fixed;top:0;left:0;z-index:10000;pointer-events:none;width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,151,58,.5);transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw}
+nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,9,8,.92) 0%,transparent 100%);pointer-events:none}
+.nav-logo{font-family:var(--ff-serif);font-size:1.1rem;font-style:italic;color:var(--cream);text-decoration:none;position:relative;z-index:1;letter-spacing:.02em}
+.nav-logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;gap:2.5rem;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);text-decoration:none;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav-links a:hover{color:var(--cream)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.hamburger{display:none;flex-direction:column;gap:6px;cursor:none;position:relative;z-index:1}
+.hamburger span{display:block;width:22px;height:1px;background:var(--cream);transition:.3s}
+@media(max-width:720px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,9,8,.97);padding:2rem 5vw;gap:1.5rem;border-bottom:1px solid var(--border)}
+}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:0 5vw;position:relative;overflow:hidden}
+.hero-bg-text{position:absolute;font-family:var(--ff-display);font-size:clamp(120px,18vw,260px);color:transparent;-webkit-text-stroke:1px rgba(201,151,58,.06);white-space:nowrap;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-8deg);pointer-events:none;user-select:none;letter-spacing:.04em;z-index:0}
+.hero-lines{position:absolute;top:0;bottom:0;left:5vw;display:flex;gap:clamp(60px,8vw,140px);pointer-events:none;z-index:0}
+.hero-lines span{display:block;width:1px;background:linear-gradient(to bottom,transparent 0%,rgba(201,151,58,.1) 30%,rgba(201,151,58,.1) 70%,transparent 100%)}
+.hero-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;padding-top:clamp(100px,14vh,160px)}
+.hero-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;opacity:0;animation:fadeUp .8s .2s var(--ease) forwards}
+.hero-eyebrow-line{width:40px;height:1px;background:var(--gold)}
+.hero-eyebrow-text{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.hero-name{font-family:var(--ff-serif);font-size:clamp(3.5rem,9vw,8.5rem);font-weight:900;line-height:.95;letter-spacing:-.03em;color:var(--cream);margin-bottom:1.5rem;opacity:0;animation:fadeUp .9s .35s var(--ease) forwards}
+.hero-name .italic{font-style:italic;color:var(--gold);display:block}
+.hero-desc{max-width:480px;font-size:.95rem;color:var(--mist);line-height:1.8;margin-bottom:3rem;opacity:0;animation:fadeUp .8s .5s var(--ease) forwards}
+.hero-desc strong{color:var(--cream);font-weight:400}
+.hero-ctas{display:flex;gap:1.2rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .65s var(--ease) forwards}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--ff-sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:none;transition:all .35s var(--ease);border:none}
+.btn-gold{padding:.85rem 2rem;background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-ghost{padding:.85rem 2rem;background:transparent;color:var(--cream);border:1px solid rgba(240,235,224,.2)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.hero-stats-strip{display:flex;align-items:stretch;border-top:1px solid var(--borderfaint);margin-top:5vh;padding-top:2.5rem;gap:0;opacity:0;animation:fadeUp .8s .8s var(--ease) forwards}
+.hstat{flex:1;padding:0 2.5rem;border-right:1px solid var(--borderfaint)}
+.hstat:first-child{padding-left:0}
+.hstat:last-child{border-right:none}
+.hstat-num{font-family:var(--ff-serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:var(--cream);line-height:1;margin-bottom:.3rem}
+.hstat-num sup{font-size:.5em;color:var(--gold);vertical-align:super}
+.hstat-lbl{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}
+@media(max-width:680px){
+  .hero-stats-strip{flex-direction:column;gap:1.5rem}
+  .hstat{border-right:none;border-bottom:1px solid var(--borderfaint);padding:0 0 1.5rem}
+  .hstat:last-child{border-bottom:none;padding-bottom:0}
+}
+
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 0;background:linear-gradient(90deg,var(--ink) 0%,rgba(201,151,58,.04) 50%,var(--ink) 100%)}
+.marquee-track{display:flex;gap:0;animation:marquee 28s linear infinite;width:max-content}
+.marquee-item{display:flex;align-items:center;gap:2.5rem;padding:0 2.5rem;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);white-space:nowrap}
+.marquee-item .dot{color:var(--gold);font-size:.6rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.sec{padding:clamp(80px,12vh,140px) 5vw;position:relative;z-index:1}
+.container{max-width:1200px;margin:0 auto;width:100%}
+.sec-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.sec-eyebrow-num{font-family:var(--ff-serif);font-style:italic;font-size:.75rem;color:var(--gold)}
+.sec-eyebrow-line{width:32px;height:1px;background:var(--border)}
+.sec-eyebrow-label{font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
+.sec-title{font-family:var(--ff-serif);font-size:clamp(2rem,4.5vw,3.8rem);font-weight:700;color:var(--cream);line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.sec-title em{font-style:italic;color:var(--gold)}
+.sec-sub{font-size:.9rem;color:var(--mist);max-width:480px;line-height:1.8;margin-bottom:3.5rem}
+.r{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.r.on{opacity:1;transform:translateY(0)}
+.r.d1{transition-delay:.1s}.r.d2{transition-delay:.2s}.r.d3{transition-delay:.3s}.r.d4{transition-delay:.4s}
+
+/* ABOUT */
+#about{background:var(--ink2)}
+.about-layout{display:grid;grid-template-columns:1fr 1px 1.1fr;gap:0;align-items:start}
+.about-divider{background:var(--border);min-height:300px;margin:0 4rem}
+.about-text p{font-size:.92rem;color:var(--mist);margin-bottom:1.1rem;line-height:1.85}
+.about-text p strong{color:var(--cream);font-weight:400}
+.about-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
+.atag{padding:.35rem .9rem;border:1px solid var(--border);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);transition:all .3s}
+.atag:hover{border-color:var(--gold);color:var(--gold)}
+.company-block{padding:2.5rem;border:1px solid var(--border);position:relative;overflow:hidden}
+.company-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.company-block::after{content:'A';position:absolute;bottom:-20px;right:-10px;font-family:var(--ff-display);font-size:120px;color:rgba(201,151,58,.04);pointer-events:none;line-height:1}
+.company-name-big{font-family:var(--ff-serif);font-weight:700;font-style:italic;font-size:1.5rem;color:var(--cream);margin-bottom:.3rem}
+.company-subtitle{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.company-desc{font-size:.85rem;color:var(--mist);line-height:1.8;margin-bottom:1.5rem}
+.company-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.company-list li{font-size:.82rem;color:var(--mist);display:flex;align-items:flex-start;gap:.7rem}
+.company-list li::before{content:'—';color:var(--gold);flex-shrink:0;font-weight:300}
+@media(max-width:900px){.about-layout{grid-template-columns:1fr;gap:3rem}.about-divider{display:none}}
+
+/* SKILLS */
+#skills{background:var(--ink)}
+.skills-masonry{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--border);background:var(--border)}
+.skill-block{background:var(--ink);padding:2rem 1.8rem;transition:background .35s;position:relative;overflow:hidden}
+.skill-block::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,151,58,.06) 0%,transparent 60%);opacity:0;transition:opacity .35s}
+.skill-block:hover{background:var(--ink3)}
+.skill-block:hover::after{opacity:1}
+.skill-block-num{font-family:var(--ff-serif);font-style:italic;font-size:.72rem;color:var(--gold);margin-bottom:.8rem;display:block}
+.skill-block-title{font-family:var(--ff-serif);font-weight:700;font-size:1rem;color:var(--cream);margin-bottom:1rem;line-height:1.3}
+.skill-pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.spill{font-size:.67rem;letter-spacing:.06em;padding:.25rem .7rem;border:1px solid var(--borderfaint);color:var(--mist);transition:all .25s}
+.skill-block:hover .spill{border-color:rgba(201,151,58,.2)}
+.spill:hover{border-color:var(--gold)!important;color:var(--gold)}
+@media(max-width:860px){.skills-masonry{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.skills-masonry{grid-template-columns:1fr}}
+
+/* EXPERIENCE */
+#experience{background:var(--ink2)}
+.exp-header-row{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
+@media(max-width:760px){.exp-header-row{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}}
+.exp-duration-badge{display:inline-flex;flex-direction:column;padding:1.2rem 1.6rem;border:1px solid var(--border);border-left:3px solid var(--gold)}
+.exp-duration-num{font-family:var(--ff-serif);font-size:2rem;font-weight:700;color:var(--cream);line-height:1}
+.exp-duration-lbl{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-top:.2rem}
+.exp-blocks{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.exp-block{background:var(--ink2);display:grid;grid-template-columns:220px 1fr;transition:background .3s}
+.exp-block:hover{background:var(--ink3)}
+.exp-block-left{padding:2rem;border-right:1px solid var(--border)}
+.exp-block-tag{display:inline-block;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);padding:.25rem .7rem;border:1px solid var(--border);margin-bottom:.8rem}
+.exp-block-title{font-family:var(--ff-serif);font-weight:700;font-size:.95rem;color:var(--cream);margin-bottom:.4rem;line-height:1.3}
+.exp-block-sub{font-size:.75rem;color:var(--mist)}
+.exp-block-right{padding:2rem}
+.exp-block-right ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.exp-block-right ul li{font-size:.83rem;color:var(--mist);line-height:1.6;display:flex;align-items:flex-start;gap:.7rem}
+.exp-block-right ul li::before{content:'–';color:var(--gold);flex-shrink:0}
+.exp-block-right ul li strong{color:var(--cream);font-weight:400}
+@media(max-width:680px){.exp-block{grid-template-columns:1fr}.exp-block-left{border-right:none;border-bottom:1px solid var(--border);padding-bottom:1.2rem}}
+
+/* PROJECTS */
+#projects{background:var(--ink)}
+.projects-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.proj-row{background:var(--ink);display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:2.5rem;padding:2.2rem 2rem;cursor:none;transition:background .3s,padding .3s;position:relative;overflow:hidden}
+.proj-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);transition:width .35s var(--ease)}
+.proj-row:hover{background:var(--ink3);padding-left:3rem}
+.proj-row:hover::before{width:3px}
+.proj-num{font-family:var(--ff-serif);font-style:italic;font-size:1.5rem;color:rgba(201,151,58,.25);line-height:1}
+.proj-title{font-family:var(--ff-serif);font-weight:700;font-size:1.05rem;color:var(--cream);margin-bottom:.3rem;transition:color .3s}
+.proj-row:hover .proj-title{color:var(--gold)}
+.proj-desc{font-size:.8rem;color:var(--mist);line-height:1.6;max-width:600px}
+.proj-meta{text-align:right;flex-shrink:0}
+.proj-result{display:inline-block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);padding:.25rem .7rem;border:1px solid var(--border);white-space:nowrap}
+.proj-tags{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end;margin-top:.5rem}
+.ptag{font-size:.62rem;letter-spacing:.08em;color:var(--mist)}
+.ptag::after{content:'·';margin-left:.4rem;color:var(--border)}
+.ptag:last-child::after{display:none}
+@media(max-width:760px){.proj-row{grid-template-columns:50px 1fr;gap:1.2rem}.proj-meta{display:none}}
+
+/* ACHIEVEMENTS */
+#achievements{background:var(--ink2)}
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:1px}
+.ach-card{background:var(--ink2);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden;transition:background .35s}
+.ach-card:hover{background:var(--ink3)}
+.ach-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ach-num{font-family:var(--ff-serif);font-weight:900;font-size:clamp(2.8rem,5vw,4.2rem);color:var(--cream);line-height:1;margin-bottom:.6rem}
+.ach-num em{font-style:italic;color:var(--gold)}
+.ach-label{font-size:.75rem;letter-spacing:.06em;color:var(--mist);line-height:1.5}
+.ach-extras{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.ach-extra{background:var(--ink2);padding:2rem;display:flex;align-items:flex-start;gap:1.2rem;transition:background .3s}
+.ach-extra:hover{background:var(--ink3)}
+.ach-extra-icon{font-size:1rem;width:38px;height:38px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)}
+.ach-extra-title{font-size:.82rem;color:var(--cream);margin-bottom:.2rem;font-weight:400}
+.ach-extra-text{font-size:.78rem;color:var(--mist);line-height:1.6}
+@media(max-width:760px){.ach-grid{grid-template-columns:repeat(2,1fr)}.ach-extras{grid-template-columns:1fr}}
+@media(max-width:440px){.ach-grid{grid-template-columns:1fr}}
+
+/* CERTS */
+#certs{background:var(--ink)}
+.certs-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.cert-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.cert-item{background:var(--ink);padding:1.6rem 1.8rem;display:flex;align-items:flex-start;gap:1.2rem;transition:background .3s}
+.cert-item:hover{background:var(--ink3)}
+.cert-rank{font-family:var(--ff-serif);font-style:italic;font-size:.75rem;color:var(--gold);flex-shrink:0;padding-top:.1rem}
+.cert-name{font-size:.88rem;color:var(--cream);margin-bottom:.2rem;font-weight:400}
+.cert-issuer{font-size:.72rem;color:var(--mist)}
+.cert-year{margin-left:auto;flex-shrink:0;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding-top:.15rem}
+.edu-block{padding:2.5rem;border:1px solid var(--border);position:relative;overflow:hidden}
+.edu-block::after{content:'B.Tech';position:absolute;bottom:-15px;right:-5px;font-family:var(--ff-display);font-size:64px;color:rgba(201,151,58,.04);pointer-events:none;letter-spacing:.05em}
+.edu-degree{font-family:var(--ff-serif);font-weight:700;font-size:1.2rem;color:var(--cream);margin-bottom:.3rem}
+.edu-school{font-size:.85rem;color:var(--mist);margin-bottom:.4rem}
+.edu-year{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;display:block}
+.edu-note{font-size:.8rem;color:var(--mist);line-height:1.7;border-top:1px solid var(--borderfaint);padding-top:1rem}
+@media(max-width:760px){.certs-layout{grid-template-columns:1fr;gap:2.5rem}}
+
+/* CONTACT */
+#contact{background:var(--ink2);text-align:center;padding:clamp(100px,14vh,160px) 5vw;position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,151,58,.06) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
+.contact-eyebrow{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1.5rem}
+.contact-title{font-family:var(--ff-serif);font-size:clamp(2.5rem,7vw,6rem);font-weight:700;font-style:italic;color:var(--cream);line-height:1;margin-bottom:1.5rem;letter-spacing:-.03em}
+.contact-sub{font-size:.9rem;color:var(--mist);max-width:420px;margin:0 auto 3rem;line-height:1.8}
+.contact-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.contact-link{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);padding:1.1rem 2rem;border:1px solid var(--border);transition:all .35s var(--ease);position:relative;overflow:hidden}
+.contact-link::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .35s var(--ease)}
+.contact-link:hover{color:var(--ink);border-color:var(--gold)}
+.contact-link:hover::before{transform:translateY(0)}
+.contact-link span{position:relative;z-index:1}
+.contact-link-icon{font-size:.9rem;position:relative;z-index:1}
+.contact-location{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-top:.5rem}
+.contact-location em{color:var(--gold);font-style:normal}
+
+/* FOOTER */
+footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-left{font-size:.68rem;letter-spacing:.1em;color:var(--mist)}
+.footer-left span{color:var(--gold)}
+.footer-right{font-size:.68rem;letter-spacing:.08em;color:var(--mist)}
+
+/* SCROLL TOP */
+#stt{position:fixed;bottom:2rem;right:2rem;z-index:200;width:44px;height:44px;border:1px solid var(--border);background:var(--ink2);color:var(--gold);font-size:.85rem;cursor:none;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all .35s var(--ease)}
+#stt.on{opacity:1;pointer-events:auto}
+#stt:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<nav id="nav">
+  <a class="nav-logo" href="#hero">Shubham <em>B.</em></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Impact</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hbg" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">ANALYST</div>
+  <div class="hero-lines"><span></span><span></span><span></span><span></span></div>
+  <div class="hero-content container">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      <span class="hero-eyebrow-text">Business Analyst · CFaaS & B2B SaaS · Hyderabad, India</span>
+    </div>
+    <h1 class="hero-name">
+      Shubham
+      <em class="italic">Belorkar.</em>
+    </h1>
+    <p class="hero-desc">
+      Turning raw data into revenue.<br>
+      <strong>2+ years</strong> building intelligence pipelines, leading analytics, and
+      working directly with <strong>CEOs, Co-founders & Marketing and Data Team</strong> at the world's first CFaaS provider.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-gold">Get in touch ↗</a>
+      <a href="Shubham_Analyst_Main.pdf" download class="btn btn-ghost">⬇ Download CV</a>
+    </div>
+    <div class="hero-stats-strip">
+      <div class="hstat">
+        <div class="hstat-num">2<sup>+</sup></div>
+        <div class="hstat-lbl">Years Experience</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">15<sup>%</sup></div>
+        <div class="hstat-lbl">Revenue Growth</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">10k<sup>+</sup></div>
+        <div class="hstat-lbl">CRM Records Governed</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">20<sup>+</sup></div>
+        <div class="hstat-lbl">Interns Trained</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">SQL Advanced <span class="dot">◆</span></div>
+    <div class="marquee-item">Power BI <span class="dot">◆</span></div>
+    <div class="marquee-item">Python Automation <span class="dot">◆</span></div>
+    <div class="marquee-item">BRD / FRD Documentation <span class="dot">◆</span></div>
+    <div class="marquee-item">Market Intelligence <span class="dot">◆</span></div>
+    <div class="marquee-item">CRM Governance <span class="dot">◆</span></div>
+    <div class="marquee-item">Web Scraping <span class="dot">◆</span></div>
+    <div class="marquee-item">Revenue Analytics <span class="dot">◆</span></div>
+    <div class="marquee-item">UAT Management <span class="dot">◆</span></div>
+    <div class="marquee-item">AWS Cloud <span class="dot">◆</span></div>
+    <div class="marquee-item">SQL Advanced <span class="dot">◆</span></div>
+    <div class="marquee-item">Power BI <span class="dot">◆</span></div>
+    <div class="marquee-item">Python Automation <span class="dot">◆</span></div>
+    <div class="marquee-item">BRD / FRD Documentation <span class="dot">◆</span></div>
+    <div class="marquee-item">Market Intelligence <span class="dot">◆</span></div>
+    <div class="marquee-item">CRM Governance <span class="dot">◆</span></div>
+    <div class="marquee-item">Web Scraping <span class="dot">◆</span></div>
+    <div class="marquee-item">Revenue Analytics <span class="dot">◆</span></div>
+    <div class="marquee-item">UAT Management <span class="dot">◆</span></div>
+    <div class="marquee-item">AWS Cloud <span class="dot">◆</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="container">
+    <div class="about-layout">
+      <div class="r">
+        <div class="sec-eyebrow">
+          <span class="sec-eyebrow-num">01</span>
+          <span class="sec-eyebrow-line"></span>
+          <span class="sec-eyebrow-label">About</span>
+        </div>
+        <h2 class="sec-title">Analyst.<br>Strategist.<br><em>Problem Solver.</em></h2>
+        <div class="about-text" style="margin-top:1.5rem">
+          <p>I'm a <strong>Business Analyst</strong> with 2+ years at Avadhesh.co — the first Corporate Functions as a Service provider. My work lives at the intersection of data, strategy, and execution.</p>
+          <p>I collaborate directly with <strong>CEOs, Co-founders & Marketing and Data Team </strong>, translating business goals into structured analytical frameworks and measurable results. From Python scraping pipelines to Power BI dashboards — I build systems that make decisions easier.</p>
+          <p>I've trained <strong>20+ interns</strong>, governed CRM databases at scale, and consistently delivered impact that shows up in revenue numbers.</p>
+        </div>
+        <div class="about-tags r d1">
+          <span class="atag">Python</span><span class="atag">SQL</span>
+          <span class="atag">Power BI</span><span class="atag">Market Intelligence</span>
+          <span class="atag">BRD / FRD</span><span class="atag">C-Suite Collaboration</span>
+          <span class="atag">CRM Governance</span><span class="atag">Agile / Scrum</span>
+        </div>
+      </div>
+      <div class="about-divider"></div>
+      <div class="r d1">
+        <div class="company-block">
+          <div class="company-name-big">Avadhesh.co</div>
+          <div class="company-subtitle">India's First CFaaS Provider · Hyderabad</div>
+          <p class="company-desc">Avadhesh.co augments, amplifies and accelerates business operations for clients — enabling companies to outsource entire corporate functions and scale without the overhead.</p>
+          <ul class="company-list">
+            <li>Works directly with founders and leadership teams of client companies</li>
+            <li>Serves B2B SaaS, fintech, and operations-heavy verticals</li>
+            <li>Delivers measurable ROI through data-driven execution</li>
+            <li>Provides end-to-end sales, analytics, and strategy support</li>
+            <li>Hyderabad-based with pan-India remote client coverage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sec">
+  <div class="container">
+    <div class="r">
+      <div class="sec-eyebrow">
+        <span class="sec-eyebrow-num">02</span>
+        <span class="sec-eyebrow-line"></span>
+        <span class="sec-eyebrow-label">Capabilities</span>
+      </div>
+      <h2 class="sec-title">Skills &amp; <em>Expertise</em></h2>
+      <p class="sec-sub">A focused toolkit built around data, analysis, and business outcomes.</p>
+    </div>
+    <div class="skills-masonry r d1">
+      <div class="skill-block">
+        <span class="skill-block-num">01 —</span>
+        <div class="skill-block-title">Data & Analytics</div>
+        <div class="skill-pills">
+          <span class="spill">SQL Advanced</span><span class="spill">Power BI</span>
+          <span class="spill">DAX Measures</span><span class="spill">Advanced Excel</span>
+          <span class="spill">Data Mining</span><span class="spill">KPI Reporting</span>
+          <span class="spill">Data Cleansing</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-block-num">02 —</span>
+        <div class="skill-block-title">Python & Automation</div>
+        <div class="skill-pills">
+          <span class="spill">Pandas</span><span class="spill">NumPy</span>
+          <span class="spill">BeautifulSoup</span><span class="spill">Web Scraping</span>
+          <span class="spill">Pipeline Building</span><span class="spill">Automation Scripts</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-block-num">03 —</span>
+        <div class="skill-block-title">Business Analysis</div>
+        <div class="skill-pills">
+          <span class="spill">BRD / FRD Docs</span><span class="spill">Requirements Gathering</span>
+          <span class="spill">UAT Management</span><span class="spill">Gap Analysis</span>
+          <span class="spill">Process Mapping</span><span class="spill">Stakeholder Mgmt</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-block-num">04 —</span>
+        <div class="skill-block-title">Sales & GTM</div>
+        <div class="skill-pills">
+          <span class="spill">Pipeline Management</span><span class="spill">Lead Qualification</span>
+          <span class="spill">Revenue Analytics</span><span class="spill">CRM Management</span>
+          <span class="spill">Competitor Analysis</span><span class="spill">Market Research</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-block-num">05 —</span>
+        <div class="skill-block-title">Cloud & Tech</div>
+        <div class="skill-pills">
+          <span class="spill">AWS Cloud</span><span class="spill">HTML / CSS</span>
+          <span class="spill">Java Basics</span><span class="spill">CRM Tools</span>
+          <span class="spill">Reporting Automation</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-block-num">06 —</span>
+        <div class="skill-block-title">Leadership & Delivery</div>
+        <div class="skill-pills">
+          <span class="spill">Intern Training</span><span class="spill">SOP Creation</span>
+          <span class="spill">Agile</span><span class="spill">Executive Reporting</span>
+          <span class="spill">Cross-functional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sec">
+  <div class="container">
+    <div class="exp-header-row">
+      <div class="r">
+        <div class="sec-eyebrow">
+          <span class="sec-eyebrow-num">03</span>
+          <span class="sec-eyebrow-line"></span>
+          <span class="sec-eyebrow-label">Career</span>
+        </div>
+        <h2 class="sec-title">Work <em>Experience</em></h2>
+        <p class="sec-sub" style="margin-bottom:0">Building systems, pipelines, and teams at a fast-growing CFaaS company — working directly with leadership.</p>
+      </div>
+      <div class="r d2">
+        <div class="exp-duration-badge">
+          <div class="exp-duration-num">2+</div>
+          <div class="exp-duration-lbl">Years at Avadhesh.co</div>
+        </div>
+        <div style="height:.8rem"></div>
+        <div style="font-size:.75rem;color:var(--mist);line-height:1.6">Mar 2024 — Present · Business Analyst · Full-time · Hyderabad, India</div>
+      </div>
+    </div>
+    <div class="exp-blocks r">
+      <div class="exp-block">
+        <div class="exp-block-left">
+          <span class="exp-block-tag">Strategy</span>
+          <div class="exp-block-title">Executive Collaboration</div>
+          <div class="exp-block-sub">C-Suite & Founders</div>
+        </div>
+        <div class="exp-block-right">
+          <ul>
+            <li>Collaborated directly with <strong>CEOs, Co-founders & Marketing and Data Team</strong> on strategy and operational roadmaps</li>
+            <li>Delivered executive-level <strong>sales performance, market intelligence, and KPI</strong> reports</li>
+            <li>Identified ROI-aligned growth priorities across multiple client verticals</li>
+            <li>Bridged gap between business goals and data-driven execution</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-block">
+        <div class="exp-block-left">
+          <span class="exp-block-tag">Intelligence</span>
+          <div class="exp-block-title">Market Intelligence & Pipelines</div>
+          <div class="exp-block-sub">Python · SQL · Scraping</div>
+        </div>
+        <div class="exp-block-right">
+          <ul>
+            <li>Architected automated <strong>Python data pipeline</strong> (BeautifulSoup + Pandas + SQL + Excel)</li>
+            <li>Scraped competitor pricing, market signals and qualified leads across 10+ websites</li>
+            <li>Conducted <strong>competitor benchmarking and pricing gap analysis</strong> influencing GTM strategy</li>
+            <li>Delivered weekly intelligence briefs to senior leadership</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-block">
+        <div class="exp-block-left">
+          <span class="exp-block-tag">Analytics</span>
+          <div class="exp-block-title">Sales Analytics & Revenue</div>
+          <div class="exp-block-sub">Power BI · Excel · SQL</div>
+        </div>
+        <div class="exp-block-right">
+          <ul>
+            <li>Designed and managed <strong>end-to-end sales pipeline</strong> including lead tracking and conversion analytics</li>
+            <li>SQL and Excel analysis contributed to measurable <strong>15% client revenue growth</strong></li>
+            <li>Built <strong>Power BI dashboards</strong> saving ~20 hours weekly, reducing reporting time by 40%</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-block">
+        <div class="exp-block-left">
+          <span class="exp-block-tag">Governance</span>
+          <div class="exp-block-title">Data Quality & Process</div>
+          <div class="exp-block-sub">CRM · BRD · UAT</div>
+        </div>
+        <div class="exp-block-right">
+          <ul>
+            <li>Led CRM governance programme — accuracy from <strong>72% → 95%</strong> across 10,000+ records</li>
+            <li>Authored <strong>BRD/FRD documentation</strong> for 6+ initiatives, 100% on-time delivery</li>
+            <li>Managed UAT cycles with 80+ test cases — <strong>zero critical production defects</strong></li>
+            <li>Reduced operational data errors by 30% via SOP-driven standardisation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-block">
+        <div class="exp-block-left">
+          <span class="exp-block-tag">Leadership</span>
+          <div class="exp-block-title">Team Building</div>
+          <div class="exp-block-sub">20+ Interns Trained</div>
+        </div>
+        <div class="exp-block-right">
+          <ul>
+            <li>Trained and mentored <strong>20+ interns</strong> in SQL, Python scraping, CRM, and market research</li>
+            <li>Designed onboarding SOPs cutting ramp-up time by <strong>30%</strong></li>
+            <li>Conducted weekly knowledge-sharing sessions on analytics best practices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec">
+  <div class="container">
+    <div class="r">
+      <div class="sec-eyebrow">
+        <span class="sec-eyebrow-num">04</span>
+        <span class="sec-eyebrow-line"></span>
+        <span class="sec-eyebrow-label">Work</span>
+      </div>
+      <h2 class="sec-title">Key <em>Projects</em></h2>
+      <p class="sec-sub">High-impact initiatives that delivered measurable, real-world results.</p>
+    </div>
+    <div class="projects-list r d1">
+      <div class="proj-row">
+        <div class="proj-num">01</div>
+        <div class="proj-main">
+          <div class="proj-title">CRM Data Governance Overhaul</div>
+          <div class="proj-desc">SQL anomaly detection and deduplication framework to remediate 10,000+ records. Automated validation raised accuracy from 72% to 95%, enabling reliable pipeline forecasting.</div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-result">72% → 95% accuracy</div>
+          <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">CRM</span><span class="ptag">Data Quality</span></div>
+        </div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-num">02</div>
+        <div class="proj-main">
+          <div class="proj-title">Automated Executive Reporting Suite</div>
+          <div class="proj-desc">Centralised Power BI ecosystem replacing 5 disconnected Excel reports with one live dashboard — saving ~20 hours of analyst effort per week.</div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-result">~20h saved weekly</div>
+          <div class="proj-tags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Excel</span></div>
+        </div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-num">03</div>
+        <div class="proj-main">
+          <div class="proj-title">Python Market Intelligence Pipeline</div>
+          <div class="proj-desc">End-to-end web scraping pipeline (BeautifulSoup + Selenium + Pandas → SQL) automating competitor pricing and market data collection across 10+ websites for GTM analysis.</div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-result">10+ sites automated</div>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Selenium</span><span class="ptag">SQL</span></div>
+        </div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-num">04</div>
+        <div class="proj-main">
+          <div class="proj-title">Sales Lead Qualification Engine</div>
+          <div class="proj-desc">Data-driven lead scoring model in SQL and Excel ranking leads by conversion likelihood, integrated into CRM to prioritise high-value outreach.</div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-result">~20% better close rate</div>
+          <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">Excel</span><span class="ptag">CRM</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="sec">
+  <div class="container">
+    <div class="r">
+      <div class="sec-eyebrow">
+        <span class="sec-eyebrow-num">05</span>
+        <span class="sec-eyebrow-line"></span>
+        <span class="sec-eyebrow-label">Impact</span>
+      </div>
+      <h2 class="sec-title">Measurable <em>Results</em></h2>
+      <p class="sec-sub">Numbers that reflect real-world value delivered across client projects.</p>
+    </div>
+    <div class="ach-grid r d1">
+      <div class="ach-card"><div class="ach-num">15<em>%</em></div><div class="ach-label">Client revenue growth through data-driven sales optimisation</div></div>
+      <div class="ach-card"><div class="ach-num">95<em>%</em></div><div class="ach-label">CRM data accuracy across 10,000+ records — up from 72%</div></div>
+      <div class="ach-card"><div class="ach-num">40<em>%</em></div><div class="ach-label">Reduction in reporting turnaround via Power BI automation</div></div>
+      <div class="ach-card"><div class="ach-num">20<em>+</em></div><div class="ach-label">Interns trained end-to-end in SQL, Python, CRM and research</div></div>
+      <div class="ach-card"><div class="ach-num">30<em>%</em></div><div class="ach-label">Fewer operational data errors via SOP-driven standardisation</div></div>
+      <div class="ach-card"><div class="ach-num">~20<em>h</em></div><div class="ach-label">Man-hours saved weekly through automated reporting</div></div>
+    </div>
+    <div class="ach-extras r d2">
+      <div class="ach-extra">
+        <div class="ach-extra-icon">👔</div>
+        <div><div class="ach-extra-title">C-Suite Direct Access</div><div class="ach-extra-text">Worked directly with CEOs and Co-founders of client companies, delivering strategic analysis and operational roadmaps at the highest level.</div></div>
+      </div>
+      <div class="ach-extra">
+        <div class="ach-extra-icon">✅</div>
+        <div><div class="ach-extra-title">Zero Critical Defects</div><div class="ach-extra-text">Managed 80+ UAT test cases across multiple production releases with zero critical defects reaching end users.</div></div>
+      </div>
+      <div class="ach-extra">
+        <div class="ach-extra-icon">📄</div>
+        <div><div class="ach-extra-title">100% On-Time Delivery</div><div class="ach-extra-text">Authored BRD/FRD documentation for 6+ business initiatives — every single one delivered on schedule with full stakeholder sign-off.</div></div>
+      </div>
+      <div class="ach-extra">
+        <div class="ach-extra-icon">🐍</div>
+        <div><div class="ach-extra-title">Full-Stack Data Pipeline</div><div class="ach-extra-text">Built Python scraping pipeline from scratch — SQL + BeautifulSoup + Selenium → Excel — for automated weekly market intelligence delivery.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS & EDU -->
+<section id="certs" class="sec">
+  <div class="container">
+    <div class="r">
+      <div class="sec-eyebrow">
+        <span class="sec-eyebrow-num">06</span>
+        <span class="sec-eyebrow-line"></span>
+        <span class="sec-eyebrow-label">Credentials</span>
+      </div>
+      <h2 class="sec-title">Certifications &amp; <em>Education</em></h2>
+    </div>
+    <div class="certs-layout">
+      <div class="r d1">
+        <div class="cert-list">
+          <div class="cert-item">
+            <span class="cert-rank">i.</span>
+            <div><div class="cert-name">AWS Cloud Practitioner</div><div class="cert-issuer">Amazon Web Services</div></div>
+            <div class="cert-year">2023</div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-rank">ii.</span>
+            <div><div class="cert-name">Business Analysis Foundations</div><div class="cert-issuer">IIBA — International Institute of Business Analysis</div></div>
+            <div class="cert-year">2023</div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-rank">iii.</span>
+            <div><div class="cert-name">SQL for Data Analysis</div><div class="cert-issuer">Seed IT Solution</div></div>
+            <div class="cert-year">2022</div>
+          </div>
+        </div>
+      </div>
+      <div class="r d2">
+        <div class="edu-block">
+          <div class="edu-degree">B.Tech — Mechanical Engineering</div>
+          <div class="edu-school">CSVTU Bhilai · Chhattisgarh Swami Vivekanand Technical University</div>
+          <span class="edu-year">2017 – 2021</span>
+          <div class="edu-note">Post-graduate upskilling in Business Analysis, SQL, Data Analytics, Python Automation and AWS Cloud — 2022 to 2023. Self-directed transition from engineering to analytics.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="r">
+      <div class="contact-eyebrow">
+        <span style="width:28px;height:1px;background:var(--gold);display:inline-block"></span>
+        <span style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Let's Connect</span>
+        <span style="width:28px;height:1px;background:var(--gold);display:inline-block"></span>
+      </div>
+      <h2 class="contact-title">Let's Work<br>Together.</h2>
+      <p class="contact-sub">Open to full-time roles in Business Analyst, Data Analytics, and Analyst.</p>
+    </div>
+    <div class="contact-row r d1">
+      <a href="mailto:shubhambelorkar199905@gmail.com" class="contact-link">
+        <span class="contact-link-icon">✉</span>
+        <span>shubhambelorkar199905@gmail.com</span>
+      </a>
+      <a href="tel:+917000218393" class="contact-link">
+        <span class="contact-link-icon">📞</span>
+        <span>+91-7000218393</span>
+      </a>
+      <a href="https://linkedin.com/in/shubham-belorkar-524396233" target="_blank" class="contact-link">
+        <span class="contact-link-icon">in</span>
+        <span>linkedin.com/in/shubham-belorkar</span>
+      </a>
+      <a href="Shubham_Analyst_Main.pdf" download class="contact-link">
+        <span class="contact-link-icon">⬇</span>
+        <span>Download CV</span>
+      </a>
+    </div>
+    <div class="contact-location r d2">📍 Hyderabad, India &nbsp;·&nbsp; Open to <em>On-Site</em> , <em>remote</em> & <em>hybrid roles</em></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">© 2025 <span>Shubham Belorkar</span> · All rights reserved</div>
+  <div class="footer-right">Business Analyst · CFaaS & B2B SaaS · Hyderabad</div>
+</footer>
+
+<button id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Cursor
+const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.opacity='.4'});
+  el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.opacity='1'});
+});
+
+// Nav
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+
+// Reveal - show everything visible on load immediately
+function revealVisible(){
+  document.querySelectorAll('.r:not(.on)').forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top < window.innerHeight + 150) el.classList.add('on');
+  });
+}
+
+// IntersectionObserver for scroll reveals
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); }
+  });
+},{threshold:0.01, rootMargin:'0px 0px 0px 0px'});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+// Run on load and scroll
+window.addEventListener('load', revealVisible);
+window.addEventListener('scroll', revealVisible, {passive:true});
+setTimeout(revealVisible, 300);
+setTimeout(()=>{ document.querySelectorAll('.r:not(.on)').forEach(el=>el.classList.add('on')); }, 1200);
+
+// Scroll top
+const stt=document.getElementById('stt');
+window.addEventListener('scroll',()=>stt.classList.toggle('on',scrollY>500),{passive:true});
+
+// Active nav
+const secs=document.querySelectorAll('section[id]'),navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(scrollY>=s.offsetTop-140)cur=s.id});
+  navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--cream)':''});
+},{passive:true});
+</script>
+</body>
+</html>
