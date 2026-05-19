@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Shubham Belorkar — Business Analyst</title>
+<title>Shubham Belorkar — Senior Business Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" rel="stylesheet"/>
@@ -57,7 +57,7 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 .hero-eyebrow-text{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 .hero-name{font-family:var(--ff-serif);font-size:clamp(3.5rem,9vw,8.5rem);font-weight:900;line-height:.95;letter-spacing:-.03em;color:var(--cream);margin-bottom:1.5rem;opacity:0;animation:fadeUp .9s .35s var(--ease) forwards}
 .hero-name .italic{font-style:italic;color:var(--gold);display:block}
-.hero-desc{max-width:480px;font-size:.95rem;color:var(--mist);line-height:1.8;margin-bottom:3rem;opacity:0;animation:fadeUp .8s .5s var(--ease) forwards}
+.hero-desc{max-width:520px;font-size:.95rem;color:var(--mist);line-height:1.8;margin-bottom:3rem;opacity:0;animation:fadeUp .8s .5s var(--ease) forwards}
 .hero-desc strong{color:var(--cream);font-weight:400}
 .hero-ctas{display:flex;gap:1.2rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .65s var(--ease) forwards}
 .btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--ff-sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:none;transition:all .35s var(--ease);border:none}
@@ -80,7 +80,7 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 
 /* MARQUEE */
 .marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 0;background:linear-gradient(90deg,var(--ink) 0%,rgba(201,151,58,.04) 50%,var(--ink) 100%)}
-.marquee-track{display:flex;gap:0;animation:marquee 28s linear infinite;width:max-content}
+.marquee-track{display:flex;gap:0;animation:marquee 32s linear infinite;width:max-content}
 .marquee-item{display:flex;align-items:center;gap:2.5rem;padding:0 2.5rem;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);white-space:nowrap}
 .marquee-item .dot{color:var(--gold);font-size:.6rem}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -137,7 +137,11 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 
 /* EXPERIENCE */
 #experience{background:var(--ink2)}
-.exp-header-row{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
+.exp-header-row{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3rem}
+.exp-role-divider{display:flex;align-items:center;gap:1.5rem;margin:3rem 0 2rem;padding:1.2rem 1.6rem;border:1px solid var(--border);border-left:3px solid var(--gold);background:rgba(201,151,58,.03)}
+.exp-role-divider-title{font-family:var(--ff-serif);font-weight:700;font-size:1rem;color:var(--cream)}
+.exp-role-divider-period{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-left:auto}
+.exp-role-divider-badge{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.2rem .6rem}
 @media(max-width:760px){.exp-header-row{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}}
 .exp-duration-badge{display:inline-flex;flex-direction:column;padding:1.2rem 1.6rem;border:1px solid var(--border);border-left:3px solid var(--gold)}
 .exp-duration-num{font-family:var(--ff-serif);font-size:2rem;font-weight:700;color:var(--cream);line-height:1}
@@ -147,6 +151,7 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 .exp-block:hover{background:var(--ink3)}
 .exp-block-left{padding:2rem;border-right:1px solid var(--border)}
 .exp-block-tag{display:inline-block;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);padding:.25rem .7rem;border:1px solid var(--border);margin-bottom:.8rem}
+.exp-block-tag.new{color:var(--ink);background:var(--gold);border-color:var(--gold)}
 .exp-block-title{font-family:var(--ff-serif);font-weight:700;font-size:.95rem;color:var(--cream);margin-bottom:.4rem;line-height:1.3}
 .exp-block-sub{font-size:.75rem;color:var(--mist)}
 .exp-block-right{padding:2rem}
@@ -163,9 +168,11 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 .proj-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);transition:width .35s var(--ease)}
 .proj-row:hover{background:var(--ink3);padding-left:3rem}
 .proj-row:hover::before{width:3px}
+.proj-row.featured{border-left:3px solid var(--gold)}
 .proj-num{font-family:var(--ff-serif);font-style:italic;font-size:1.5rem;color:rgba(201,151,58,.25);line-height:1}
 .proj-title{font-family:var(--ff-serif);font-weight:700;font-size:1.05rem;color:var(--cream);margin-bottom:.3rem;transition:color .3s}
 .proj-row:hover .proj-title{color:var(--gold)}
+.proj-badge{display:inline-block;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:.15rem .5rem;margin-bottom:.3rem}
 .proj-desc{font-size:.8rem;color:var(--mist);line-height:1.6;max-width:600px}
 .proj-meta{text-align:right;flex-shrink:0}
 .proj-result{display:inline-block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);padding:.25rem .7rem;border:1px solid var(--border);white-space:nowrap}
@@ -216,7 +223,7 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 #contact::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,151,58,.06) 0%,transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
 .contact-eyebrow{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1.5rem}
 .contact-title{font-family:var(--ff-serif);font-size:clamp(2.5rem,7vw,6rem);font-weight:700;font-style:italic;color:var(--cream);line-height:1;margin-bottom:1.5rem;letter-spacing:-.03em}
-.contact-sub{font-size:.9rem;color:var(--mist);max-width:420px;margin:0 auto 3rem;line-height:1.8}
+.contact-sub{font-size:.9rem;color:var(--mist);max-width:460px;margin:0 auto 3rem;line-height:1.8}
 .contact-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
 .contact-link{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);padding:1.1rem 2rem;border:1px solid var(--border);transition:all .35s var(--ease);position:relative;overflow:hidden}
 .contact-link::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .35s var(--ease)}
@@ -262,25 +269,26 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg-text">ANALYST</div>
+  <div class="hero-bg-text">SENIOR ANALYST</div>
   <div class="hero-lines"><span></span><span></span><span></span><span></span></div>
   <div class="hero-content container">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-line"></span>
-      <span class="hero-eyebrow-text">Business Analyst · CFaaS & B2B SaaS · Hyderabad, India</span>
+      <span class="hero-eyebrow-text">Senior Business Analyst · AI Integration & Team Lead · Hyderabad, India</span>
     </div>
     <h1 class="hero-name">
       Shubham
       <em class="italic">Belorkar.</em>
     </h1>
     <p class="hero-desc">
-      Turning raw data into revenue.<br>
-      <strong>2+ years</strong> building intelligence pipelines, leading analytics, and
-      working directly with <strong>CEOs, Co-founders & Marketing and Data Team</strong> at the world's first CFaaS provider.
+      Building intelligence systems. Leading teams. Shipping AI.<br>
+      <strong>2+ years</strong> at India's first CFaaS provider — working directly with
+      <strong>CEOs & Founders</strong>, leading a team of <strong>9</strong>, and deploying
+      <strong>Multi automation</strong> with ChatGPT, Claude & Gemini in production.
     </p>
     <div class="hero-ctas">
       <a href="#contact" class="btn btn-gold">Get in touch ↗</a>
-      <a href="Shubham_Analyst_(New).pdf" download class="btn btn-ghost">⬇ Download CV</a>
+      <a href="Shubham_Analyst.pdf" download class="btn btn-ghost">⬇ Download CV</a>
     </div>
     <div class="hero-stats-strip">
       <div class="hstat">
@@ -288,16 +296,16 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         <div class="hstat-lbl">Years Experience</div>
       </div>
       <div class="hstat">
-        <div class="hstat-num">15<sup>%</sup></div>
-        <div class="hstat-lbl">Revenue Growth</div>
+        <div class="hstat-num">9</div>
+        <div class="hstat-lbl">Team Members Led</div>
       </div>
       <div class="hstat">
-        <div class="hstat-num">10k<sup>+</sup></div>
-        <div class="hstat-lbl">CRM Records Governed</div>
+        <div class="hstat-num">30<sup>K+</sup></div>
+        <div class="hstat-lbl">Lead Records Built</div>
       </div>
       <div class="hstat">
-        <div class="hstat-num">20<sup>+</sup></div>
-        <div class="hstat-lbl">Interns Trained</div>
+        <div class="hstat-num">3</div>
+        <div class="hstat-lbl">AI APIs in Production</div>
       </div>
     </div>
   </div>
@@ -306,25 +314,35 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
+    <div class="marquee-item">Senior Business Analyst <span class="dot">◆</span></div>
+    <div class="marquee-item">ChatGPT API <span class="dot">◆</span></div>
+    <div class="marquee-item">Claude · Gemini <span class="dot">◆</span></div>
     <div class="marquee-item">SQL Advanced <span class="dot">◆</span></div>
     <div class="marquee-item">Power BI <span class="dot">◆</span></div>
-    <div class="marquee-item">Python Automation <span class="dot">◆</span></div>
-    <div class="marquee-item">BRD / FRD Documentation <span class="dot">◆</span></div>
+    <div class="marquee-item">Python Flask <span class="dot">◆</span></div>
+    <div class="marquee-item">Chrome Extension Dev <span class="dot">◆</span></div>
+    <div class="marquee-item">React.js <span class="dot">◆</span></div>
+    <div class="marquee-item">Multi Automation <span class="dot">◆</span></div>
+    <div class="marquee-item">BRD / FRD <span class="dot">◆</span></div>
+    <div class="marquee-item">Team Lead · 9 Members <span class="dot">◆</span></div>
+    <div class="marquee-item">Agile · Scrum <span class="dot">◆</span></div>
+    <div class="marquee-item">Apollo.io REST API <span class="dot">◆</span></div>
     <div class="marquee-item">Market Intelligence <span class="dot">◆</span></div>
-    <div class="marquee-item">CRM Governance <span class="dot">◆</span></div>
-    <div class="marquee-item">Web Scraping <span class="dot">◆</span></div>
-    <div class="marquee-item">Revenue Analytics <span class="dot">◆</span></div>
-    <div class="marquee-item">UAT Management <span class="dot">◆</span></div>
     <div class="marquee-item">AWS Cloud <span class="dot">◆</span></div>
+    <div class="marquee-item">Senior Business Analyst <span class="dot">◆</span></div>
+    <div class="marquee-item">ChatGPT API <span class="dot">◆</span></div>
+    <div class="marquee-item">Claude · Gemini <span class="dot">◆</span></div>
     <div class="marquee-item">SQL Advanced <span class="dot">◆</span></div>
     <div class="marquee-item">Power BI <span class="dot">◆</span></div>
-    <div class="marquee-item">Python Automation <span class="dot">◆</span></div>
-    <div class="marquee-item">BRD / FRD Documentation <span class="dot">◆</span></div>
+    <div class="marquee-item">Python Flask <span class="dot">◆</span></div>
+    <div class="marquee-item">Chrome Extension Dev <span class="dot">◆</span></div>
+    <div class="marquee-item">React.js <span class="dot">◆</span></div>
+    <div class="marquee-item">Multi Automation <span class="dot">◆</span></div>
+    <div class="marquee-item">BRD / FRD <span class="dot">◆</span></div>
+    <div class="marquee-item">Team Lead · 9 Members <span class="dot">◆</span></div>
+    <div class="marquee-item">Agile · Scrum <span class="dot">◆</span></div>
+    <div class="marquee-item">Apollo.io REST API <span class="dot">◆</span></div>
     <div class="marquee-item">Market Intelligence <span class="dot">◆</span></div>
-    <div class="marquee-item">CRM Governance <span class="dot">◆</span></div>
-    <div class="marquee-item">Web Scraping <span class="dot">◆</span></div>
-    <div class="marquee-item">Revenue Analytics <span class="dot">◆</span></div>
-    <div class="marquee-item">UAT Management <span class="dot">◆</span></div>
     <div class="marquee-item">AWS Cloud <span class="dot">◆</span></div>
   </div>
 </div>
@@ -339,17 +357,19 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
           <span class="sec-eyebrow-line"></span>
           <span class="sec-eyebrow-label">About</span>
         </div>
-        <h2 class="sec-title">Analyst.<br>Strategist.<br><em>Problem Solver.</em></h2>
+        <h2 class="sec-title">Analyst.<br>Builder.<br><em>Team Leader.</em></h2>
         <div class="about-text" style="margin-top:1.5rem">
-          <p>I'm a <strong>Business Analyst</strong> with 2+ years at Avadhesh.co — the first Corporate Functions as a Service provider. My work lives at the intersection of data, strategy, and execution.</p>
-          <p>I collaborate directly with <strong>CEOs, Co-founders & Marketing and Data Team </strong>, translating business goals into structured analytical frameworks and measurable results. From Python scraping pipelines to Power BI dashboards — I build systems that make decisions easier.</p>
-          <p>I've trained <strong>20+ interns</strong>, governed CRM databases at scale, and consistently delivered impact that shows up in revenue numbers.</p>
+          <p>I'm a <strong>Senior Business Analyst</strong> with 2+ years at Avadhesh.co — India's first Corporate Functions as a Service provider. I lead a cross-functional team of <strong>9 members (4 BAs + 5 Interns)</strong> with daily Agile sprints and structured delivery.</p>
+          <p>I collaborate directly with <strong>CEOs & Founders</strong>, translating business goals into data-driven strategies and executable roadmaps. I've built a <strong>multi AI automation suite</strong> (ChatGPT, Claude, Gemini) and a full-stack <strong>B2B Lead Intelligence Platform</strong> managing 30,000+ company records.</p>
+          <p>From Python scraping pipelines to Chrome extensions to Power BI dashboards — I build systems that make decisions faster and teams more productive.</p>
         </div>
         <div class="about-tags r d1">
-          <span class="atag">Python</span><span class="atag">SQL</span>
-          <span class="atag">Power BI</span><span class="atag">Market Intelligence</span>
-          <span class="atag">BRD / FRD</span><span class="atag">C-Suite Collaboration</span>
-          <span class="atag">CRM Governance</span><span class="atag">Agile / Scrum</span>
+          <span class="atag">ChatGPT API</span><span class="atag">Claude</span>
+          <span class="atag">Gemini</span><span class="atag">Python · Flask</span>
+          <span class="atag">SQL</span><span class="atag">Power BI</span>
+          <span class="atag">React.js</span><span class="atag">Chrome Extension</span>
+          <span class="atag">BRD / FRD</span><span class="atag">Agile / Scrum</span>
+          <span class="atag">Team Lead</span><span class="atag">C-Suite Collaboration</span>
         </div>
       </div>
       <div class="about-divider"></div>
@@ -362,7 +382,7 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
             <li>Works directly with founders and leadership teams of client companies</li>
             <li>Serves B2B SaaS, fintech, and operations-heavy verticals</li>
             <li>Delivers measurable ROI through data-driven execution</li>
-            <li>Provides end-to-end sales, analytics, and strategy support</li>
+            <li>Provides end-to-end sales, analytics, AI, and strategy support</li>
             <li>Hyderabad-based with pan-India remote client coverage</li>
           </ul>
         </div>
@@ -381,30 +401,41 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         <span class="sec-eyebrow-label">Capabilities</span>
       </div>
       <h2 class="sec-title">Skills &amp; <em>Expertise</em></h2>
-      <p class="sec-sub">A focused toolkit built around data, analysis, and business outcomes.</p>
+      <p class="sec-sub">A full-stack analyst toolkit — from multi AI to Chrome extensions to boardroom strategy.</p>
     </div>
     <div class="skills-masonry r d1">
       <div class="skill-block">
         <span class="skill-block-num">01 —</span>
+        <div class="skill-block-title">AI & Automation</div>
+        <div class="skill-pills">
+          <span class="spill">ChatGPT API</span><span class="spill">Claude</span>
+          <span class="spill">Gemini</span><span class="spill">Multi-LLM Routing</span>
+          <span class="spill">AI Report Generation</span><span class="spill">Prompt Engineering</span>
+          <span class="spill">Workflow Automation</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-block-num">02 —</span>
+        <div class="skill-block-title">Development</div>
+        <div class="skill-pills">
+          <span class="spill">Python · Flask</span><span class="spill">React.js</span>
+          <span class="spill">Chrome Extension</span><span class="spill">REST API</span>
+          <span class="spill">SQLite</span><span class="spill">BeautifulSoup</span>
+          <span class="spill">HTML5 / CSS3</span><span class="spill">AWS Cloud</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-block-num">03 —</span>
         <div class="skill-block-title">Data & Analytics</div>
         <div class="skill-pills">
           <span class="spill">SQL Advanced</span><span class="spill">Power BI</span>
           <span class="spill">DAX Measures</span><span class="spill">Advanced Excel</span>
           <span class="spill">Data Mining</span><span class="spill">KPI Reporting</span>
-          <span class="spill">Data Cleansing</span>
+          <span class="spill">Web Scraping</span>
         </div>
       </div>
       <div class="skill-block">
-        <span class="skill-block-num">02 —</span>
-        <div class="skill-block-title">Python & Automation</div>
-        <div class="skill-pills">
-          <span class="spill">Pandas</span><span class="spill">NumPy</span>
-          <span class="spill">BeautifulSoup</span><span class="spill">Web Scraping</span>
-          <span class="spill">Pipeline Building</span><span class="spill">Automation Scripts</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <span class="skill-block-num">03 —</span>
+        <span class="skill-block-num">04 —</span>
         <div class="skill-block-title">Business Analysis</div>
         <div class="skill-pills">
           <span class="spill">BRD / FRD Docs</span><span class="spill">Requirements Gathering</span>
@@ -413,30 +444,21 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         </div>
       </div>
       <div class="skill-block">
-        <span class="skill-block-num">04 —</span>
+        <span class="skill-block-num">05 —</span>
         <div class="skill-block-title">Sales & GTM</div>
         <div class="skill-pills">
           <span class="spill">Pipeline Management</span><span class="spill">Lead Qualification</span>
-          <span class="spill">Revenue Analytics</span><span class="spill">CRM Management</span>
+          <span class="spill">Revenue Analytics</span><span class="spill">CRM Governance</span>
           <span class="spill">Competitor Analysis</span><span class="spill">Market Research</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <span class="skill-block-num">05 —</span>
-        <div class="skill-block-title">Cloud & Tech</div>
-        <div class="skill-pills">
-          <span class="spill">AWS Cloud</span><span class="spill">HTML / CSS</span>
-          <span class="spill">Java Basics</span><span class="spill">CRM Tools</span>
-          <span class="spill">Reporting Automation</span>
         </div>
       </div>
       <div class="skill-block">
         <span class="skill-block-num">06 —</span>
         <div class="skill-block-title">Leadership & Delivery</div>
         <div class="skill-pills">
-          <span class="spill">Intern Training</span><span class="spill">SOP Creation</span>
-          <span class="spill">Agile</span><span class="spill">Executive Reporting</span>
-          <span class="spill">Cross-functional</span>
+          <span class="spill">Team Lead · 9 Members</span><span class="spill">Sprint Planning</span>
+          <span class="spill">Agile / Scrum</span><span class="spill">SOP Creation</span>
+          <span class="spill">Intern Mentoring (25+)</span><span class="spill">Executive Reporting</span>
         </div>
       </div>
     </div>
@@ -446,15 +468,15 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
 <!-- EXPERIENCE -->
 <section id="experience" class="sec">
   <div class="container">
-    <div class="exp-header-row">
-      <div class="r">
+    <div class="exp-header-row r">
+      <div>
         <div class="sec-eyebrow">
           <span class="sec-eyebrow-num">03</span>
           <span class="sec-eyebrow-line"></span>
           <span class="sec-eyebrow-label">Career</span>
         </div>
         <h2 class="sec-title">Work <em>Experience</em></h2>
-        <p class="sec-sub" style="margin-bottom:0">Building systems, pipelines, and teams at a fast-growing CFaaS company — working directly with leadership.</p>
+        <p class="sec-sub" style="margin-bottom:0">Building AI systems, leading teams, and delivering data-driven outcomes — directly with leadership at a fast-growing CFaaS company.</p>
       </div>
       <div class="r d2">
         <div class="exp-duration-badge">
@@ -462,10 +484,74 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
           <div class="exp-duration-lbl">Years at Avadhesh.co</div>
         </div>
         <div style="height:.8rem"></div>
-        <div style="font-size:.75rem;color:var(--mist);line-height:1.6">Mar 2024 — Present · Business Analyst · Full-time · Hyderabad, India</div>
+        <div style="font-size:.75rem;color:var(--mist);line-height:1.6">Mar 2024 — Present · Hyderabad, India · Full-time</div>
       </div>
     </div>
-    <div class="exp-blocks r">
+
+    <!-- SENIOR BA ROLE -->
+    <div class="exp-role-divider r">
+      <div>
+        <div class="exp-role-divider-title">Senior Business Analyst</div>
+        <div style="font-size:.72rem;color:var(--mist);margin-top:.2rem">Avadhesh.co · Hyderabad</div>
+      </div>
+      <span class="exp-role-divider-badge">Current Role</span>
+      <div class="exp-role-divider-period">Mar 2026 — Present</div>
+    </div>
+
+    <div class="exp-blocks r d1">
+      <div class="exp-block">
+        <div class="exp-block-left">
+          <span class="exp-block-tag new">New</span>
+          <div class="exp-block-title">Team Leadership & Agile Delivery</div>
+          <div class="exp-block-sub">4 BAs · 5 Interns · Daily Sprints</div>
+        </div>
+        <div class="exp-block-right">
+          <ul>
+            <li>Lead <strong>4 Business Analysts + 5 Interns</strong> (AI, Database Management, BA) — owning sprint planning, daily task assignment, work review, and structured performance feedback</li>
+            <li>Run daily Agile standups and sprint cycles across multiple concurrent projects, ensuring on-time delivery and consistent quality</li>
+            <li>Define project scopes, set team KPIs, and mentor members in SQL, Python, AI tools, and business analysis frameworks</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-block">
+        <div class="exp-block-left">
+          <span class="exp-block-tag new">New</span>
+          <div class="exp-block-title">AI Integration & Automation</div>
+          <div class="exp-block-sub">ChatGPT · Claude · Gemini</div>
+        </div>
+        <div class="exp-block-right">
+          <ul>
+            <li>Architected an internal <strong>multi automation suite</strong> integrating ChatGPT API, Claude, and Gemini with task-routing logic for AI-powered report generation and workflow automation</li>
+            <li>Designed model-routing architecture to distribute queries by output type — maximising quality while reducing manual effort across the entire analyst team</li>
+            <li>Deployed AI-assisted tools measurably enhancing productivity across competitive research, executive reporting, and BA documentation workflows</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-block">
+        <div class="exp-block-left">
+          <span class="exp-block-tag new">New</span>
+          <div class="exp-block-title">Full-Stack Product Development</div>
+          <div class="exp-block-sub">Flask · React · Chrome Ext · SQLite</div>
+        </div>
+        <div class="exp-block-right">
+          <ul>
+            <li>Built <strong>B2B Lead Intelligence Platform</strong> — Chrome extension (Apollo, LinkedIn, Crunchbase, YourStory, Tracxn), Flask + SQLite backend with <strong>30,000+ records</strong>, Apollo.io REST API with advanced filters, project-based lead tagging, duplicate detection, bulk ops, auto Excel export & real-time dashboard</li>
+            <li>Built company's <strong>data intelligence website</strong> (React.js, Python Flask, BeautifulSoup, HTML5/CSS3) for automated competitive data collection and lead enrichment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- BA ROLE -->
+    <div class="exp-role-divider r" style="margin-top:2rem">
+      <div>
+        <div class="exp-role-divider-title">Business Analyst</div>
+        <div style="font-size:.72rem;color:var(--mist);margin-top:.2rem">Avadhesh.co · Hyderabad</div>
+      </div>
+      <div class="exp-role-divider-period">Mar 2024 — Feb 2026</div>
+    </div>
+
+    <div class="exp-blocks r d1">
       <div class="exp-block">
         <div class="exp-block-left">
           <span class="exp-block-tag">Strategy</span>
@@ -474,10 +560,9 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         </div>
         <div class="exp-block-right">
           <ul>
-            <li>Collaborated directly with <strong>CEOs, Co-founders & Marketing and Data Team</strong> on strategy and operational roadmaps</li>
-            <li>Delivered executive-level <strong>sales performance, market intelligence, and KPI</strong> reports</li>
-            <li>Identified ROI-aligned growth priorities across multiple client verticals</li>
-            <li>Bridged gap between business goals and data-driven execution</li>
+            <li>Collaborated directly with <strong>CEOs & Founders</strong> of client companies, translating business objectives into analytical frameworks and stakeholder roadmaps</li>
+            <li>Delivered comprehensive executive-level reports on <strong>sales performance, market intelligence, and KPIs</strong> enabling data-backed strategic decisions</li>
+            <li>Identified ROI-aligned growth opportunities and facilitated cross-functional alignment via Agile delivery frameworks</li>
           </ul>
         </div>
       </div>
@@ -489,10 +574,9 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         </div>
         <div class="exp-block-right">
           <ul>
-            <li>Architected automated <strong>Python data pipeline</strong> (BeautifulSoup + Pandas + SQL + Excel)</li>
-            <li>Scraped competitor pricing, market signals and qualified leads across 10+ websites</li>
-            <li>Conducted <strong>competitor benchmarking and pricing gap analysis</strong> influencing GTM strategy</li>
-            <li>Delivered weekly intelligence briefs to senior leadership</li>
+            <li>Architected automated <strong>Python data pipeline</strong> (BeautifulSoup + Pandas + NumPy + SQL) for scalable competitor pricing, signals, and lead extraction across 10+ verticals</li>
+            <li>Conducted in-depth <strong>competitor benchmarking and pricing gap analysis</strong> directly informing go-to-market strategies and product positioning</li>
+            <li>Delivered weekly intelligence briefs to senior leadership on market trends, risks, and competitive movements</li>
           </ul>
         </div>
       </div>
@@ -504,9 +588,9 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         </div>
         <div class="exp-block-right">
           <ul>
-            <li>Designed and managed <strong>end-to-end sales pipeline</strong> including lead tracking and conversion analytics</li>
-            <li>SQL and Excel analysis contributed to measurable <strong>15% client revenue growth</strong></li>
-            <li>Built <strong>Power BI dashboards</strong> saving ~20 hours weekly, reducing reporting time by 40%</li>
+            <li>Designed and managed <strong>end-to-end sales pipeline</strong> — lead qualification, progression tracking, and conversion analytics using SQL and Advanced Excel</li>
+            <li>Built <strong>Power BI dashboards</strong> consolidating CRM, billing, and support data, significantly reducing manual reporting effort for leadership</li>
+            <li>Developed data-driven lead scoring models to prioritise high-value prospects and improve outreach efficiency</li>
           </ul>
         </div>
       </div>
@@ -518,24 +602,23 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         </div>
         <div class="exp-block-right">
           <ul>
-            <li>Led CRM governance programme — accuracy from <strong>72% → 95%</strong> across 10,000+ records</li>
-            <li>Authored <strong>BRD/FRD documentation</strong> for 6+ initiatives, 100% on-time delivery</li>
-            <li>Managed UAT cycles with 80+ test cases — <strong>zero critical production defects</strong></li>
-            <li>Reduced operational data errors by 30% via SOP-driven standardisation</li>
+            <li>Led CRM data governance programme, significantly improving data accuracy across <strong>10,000+ records</strong> and enabling reliable pipeline forecasting</li>
+            <li>Authored <strong>BRD/FRD documentation</strong> for 6+ business initiatives with 100% on-time stakeholder sign-off</li>
+            <li>Managed end-to-end <strong>UAT cycles</strong> across 80+ test cases — achieving zero critical defects in production go-live</li>
           </ul>
         </div>
       </div>
       <div class="exp-block">
         <div class="exp-block-left">
           <span class="exp-block-tag">Leadership</span>
-          <div class="exp-block-title">Team Building</div>
-          <div class="exp-block-sub">20+ Interns Trained</div>
+          <div class="exp-block-title">Team Building & Mentoring</div>
+          <div class="exp-block-sub">25+ Interns Trained</div>
         </div>
         <div class="exp-block-right">
           <ul>
-            <li>Trained and mentored <strong>20+ interns</strong> in SQL, Python scraping, CRM, and market research</li>
-            <li>Designed onboarding SOPs cutting ramp-up time by <strong>30%</strong></li>
-            <li>Conducted weekly knowledge-sharing sessions on analytics best practices</li>
+            <li>Trained and mentored <strong>25+ interns</strong> in SQL querying, Python scraping pipelines, CRM workflows, and structured market research</li>
+            <li>Designed onboarding SOPs reducing ramp-up time and ensuring consistent delivery quality from day one</li>
+            <li>Conducted weekly knowledge-sharing sessions on data analysis best practices and Agile workflows</li>
           </ul>
         </div>
       </div>
@@ -553,51 +636,64 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         <span class="sec-eyebrow-label">Work</span>
       </div>
       <h2 class="sec-title">Key <em>Projects</em></h2>
-      <p class="sec-sub">High-impact initiatives that delivered measurable, real-world results.</p>
+      <p class="sec-sub">Production systems built from scratch — AI pipelines, full-stack platforms, and intelligence tools.</p>
     </div>
     <div class="projects-list r d1">
-      <div class="proj-row">
+      <div class="proj-row featured">
         <div class="proj-num">01</div>
         <div class="proj-main">
-          <div class="proj-title">CRM Data Governance Overhaul</div>
-          <div class="proj-desc">SQL anomaly detection and deduplication framework to remediate 10,000+ records. Automated validation raised accuracy from 72% to 95%, enabling reliable pipeline forecasting.</div>
+          <div class="proj-badge">Star Project</div>
+          <div class="proj-title">B2B Lead Intelligence Platform</div>
+          <div class="proj-desc">Full-stack lead generation system replacing manual Excel workflows. Chrome extension scrapes Apollo, LinkedIn, Crunchbase, YourStory & Tracxn. Flask + SQLite backend manages 30,000+ company records. Apollo.io REST API with filters (industry, city, funding, revenue). Features: project-based lead tagging, duplicate detection, bulk ops, auto Excel export & real-time dashboard.</div>
         </div>
         <div class="proj-meta">
-          <div class="proj-result">72% → 95% accuracy</div>
-          <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">CRM</span><span class="ptag">Data Quality</span></div>
+          <div class="proj-result">30,000+ Records</div>
+          <div class="proj-tags"><span class="ptag">Flask</span><span class="ptag">SQLite</span><span class="ptag">Chrome Ext</span><span class="ptag">React.js</span></div>
         </div>
       </div>
-      <div class="proj-row">
+      <div class="proj-row featured">
         <div class="proj-num">02</div>
         <div class="proj-main">
-          <div class="proj-title">Automated Executive Reporting Suite</div>
-          <div class="proj-desc">Centralised Power BI ecosystem replacing 5 disconnected Excel reports with one live dashboard — saving ~20 hours of analyst effort per week.</div>
+          <div class="proj-badge">AI Built</div>
+          <div class="proj-title">Multi AI Automation Suite</div>
+          <div class="proj-desc">Internal AI toolset integrating ChatGPT API, Claude, and Gemini for automated report generation and intelligent workflow execution. Task-routing logic distributes queries across models by output type — reducing manual documentation effort and accelerating research across the entire analyst team.</div>
         </div>
         <div class="proj-meta">
-          <div class="proj-result">~20h saved weekly</div>
-          <div class="proj-tags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Excel</span></div>
+          <div class="proj-result">3 AI APIs Live</div>
+          <div class="proj-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span><span class="ptag">Gemini</span><span class="ptag">Python</span></div>
         </div>
       </div>
       <div class="proj-row">
         <div class="proj-num">03</div>
         <div class="proj-main">
-          <div class="proj-title">Python Market Intelligence Pipeline</div>
-          <div class="proj-desc">End-to-end web scraping pipeline (BeautifulSoup + Selenium + Pandas → SQL) automating competitor pricing and market data collection across 10+ websites for GTM analysis.</div>
+          <div class="proj-title">CRM Data Governance Overhaul</div>
+          <div class="proj-desc">SQL-based anomaly detection and deduplication framework remediating 10,000+ CRM records. Established automated validation checks and ongoing monitoring, significantly improving data accuracy and enabling reliable pipeline forecasting for leadership.</div>
         </div>
         <div class="proj-meta">
-          <div class="proj-result">10+ sites automated</div>
-          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Selenium</span><span class="ptag">SQL</span></div>
+          <div class="proj-result">10,000+ Records</div>
+          <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">CRM</span><span class="ptag">Data Quality</span></div>
         </div>
       </div>
       <div class="proj-row">
         <div class="proj-num">04</div>
         <div class="proj-main">
-          <div class="proj-title">Sales Lead Qualification Engine</div>
-          <div class="proj-desc">Data-driven lead scoring model in SQL and Excel ranking leads by conversion likelihood, integrated into CRM to prioritise high-value outreach.</div>
+          <div class="proj-title">Automated Executive Reporting Suite</div>
+          <div class="proj-desc">Centralised Power BI ecosystem consolidating CRM, billing, and support data into a single live dashboard — replacing disconnected manual Excel reports and significantly reducing weekly analyst effort while providing real-time KPI visibility to leadership.</div>
         </div>
         <div class="proj-meta">
-          <div class="proj-result">~20% better close rate</div>
-          <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">Excel</span><span class="ptag">CRM</span></div>
+          <div class="proj-result">Real-time KPIs</div>
+          <div class="proj-tags"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Excel</span></div>
+        </div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-num">05</div>
+        <div class="proj-main">
+          <div class="proj-title">Market Intelligence & Lead Scoring Pipeline</div>
+          <div class="proj-desc">Automated Python pipeline (BeautifulSoup, Pandas, NumPy) collecting competitor pricing and lead data across 10+ websites into structured SQL databases. Integrated data-driven lead scoring model enabling sales team to prioritise high-conversion outreach.</div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-result">10+ Sites</div>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">BeautifulSoup</span><span class="ptag">SQL</span></div>
         </div>
       </div>
     </div>
@@ -613,33 +709,33 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         <span class="sec-eyebrow-line"></span>
         <span class="sec-eyebrow-label">Impact</span>
       </div>
-      <h2 class="sec-title">Measurable <em>Results</em></h2>
-      <p class="sec-sub">Numbers that reflect real-world value delivered across client projects.</p>
+      <h2 class="sec-title">Real <em>Results</em></h2>
+      <p class="sec-sub">Numbers that are 100% real, built, and fully defensible.</p>
     </div>
     <div class="ach-grid r d1">
-      <div class="ach-card"><div class="ach-num">15<em>%</em></div><div class="ach-label">Client revenue growth through data-driven sales optimisation</div></div>
-      <div class="ach-card"><div class="ach-num">95<em>%</em></div><div class="ach-label">CRM data accuracy across 10,000+ records — up from 72%</div></div>
-      <div class="ach-card"><div class="ach-num">40<em>%</em></div><div class="ach-label">Reduction in reporting turnaround via Power BI automation</div></div>
-      <div class="ach-card"><div class="ach-num">20<em>+</em></div><div class="ach-label">Interns trained end-to-end in SQL, Python, CRM and research</div></div>
-      <div class="ach-card"><div class="ach-num">30<em>%</em></div><div class="ach-label">Fewer operational data errors via SOP-driven standardisation</div></div>
-      <div class="ach-card"><div class="ach-num">~20<em>h</em></div><div class="ach-label">Man-hours saved weekly through automated reporting</div></div>
+      <div class="ach-card"><div class="ach-num">30<em>K+</em></div><div class="ach-label">Company records managed in B2B Lead Intelligence Platform with Chrome extension & Apollo.io API</div></div>
+      <div class="ach-card"><div class="ach-num">3</div><div class="ach-label">AI APIs deployed in production — ChatGPT, Claude & Gemini in one internal automation suite</div></div>
+      <div class="ach-card"><div class="ach-num">9</div><div class="ach-label">Team members led — 4 Business Analysts + 5 Interns via daily Agile sprints</div></div>
+      <div class="ach-card"><div class="ach-num">25<em>+</em></div><div class="ach-label">Interns trained end-to-end in SQL, Python, CRM governance and market research</div></div>
+      <div class="ach-card"><div class="ach-num">0</div><div class="ach-label">Critical defects in production — zero across 80+ UAT test cases managed end-to-end</div></div>
+      <div class="ach-card"><div class="ach-num">10<em>K+</em></div><div class="ach-label">CRM records governed — SQL-based deduplication and data quality framework</div></div>
     </div>
     <div class="ach-extras r d2">
       <div class="ach-extra">
+        <div class="ach-extra-icon">🤖</div>
+        <div><div class="ach-extra-title">Multi-LLM in Production</div><div class="ach-extra-text">Built and deployed an internal AI automation suite integrating ChatGPT, Claude & Gemini — with intelligent task-routing logic distributing queries by output type for maximum accuracy.</div></div>
+      </div>
+      <div class="ach-extra">
+        <div class="ach-extra-icon">🏗️</div>
+        <div><div class="ach-extra-title">Full-Stack Platform Builder</div><div class="ach-extra-text">Built a production B2B Lead Intelligence Platform from scratch — Chrome extension, Flask backend, SQLite database, Apollo.io REST API integration, and a real-time analytics dashboard.</div></div>
+      </div>
+      <div class="ach-extra">
         <div class="ach-extra-icon">👔</div>
-        <div><div class="ach-extra-title">C-Suite Direct Access</div><div class="ach-extra-text">Worked directly with CEOs and Co-founders of client companies, delivering strategic analysis and operational roadmaps at the highest level.</div></div>
+        <div><div class="ach-extra-title">C-Suite Direct Access</div><div class="ach-extra-text">Worked directly with CEOs and Founders of client companies, delivering strategic analysis, operational roadmaps, and market intelligence at the highest level of decision-making.</div></div>
       </div>
       <div class="ach-extra">
         <div class="ach-extra-icon">✅</div>
-        <div><div class="ach-extra-title">Zero Critical Defects</div><div class="ach-extra-text">Managed 80+ UAT test cases across multiple production releases with zero critical defects reaching end users.</div></div>
-      </div>
-      <div class="ach-extra">
-        <div class="ach-extra-icon">📄</div>
-        <div><div class="ach-extra-title">100% On-Time Delivery</div><div class="ach-extra-text">Authored BRD/FRD documentation for 6+ business initiatives — every single one delivered on schedule with full stakeholder sign-off.</div></div>
-      </div>
-      <div class="ach-extra">
-        <div class="ach-extra-icon">🐍</div>
-        <div><div class="ach-extra-title">Full-Stack Data Pipeline</div><div class="ach-extra-text">Built Python scraping pipeline from scratch — SQL + BeautifulSoup + Selenium → Excel — for automated weekly market intelligence delivery.</div></div>
+        <div><div class="ach-extra-title">Zero Critical Defects</div><div class="ach-extra-text">Managed end-to-end UAT cycles across 80+ test cases across multiple production releases — achieving zero critical defects in every go-live.</div></div>
       </div>
     </div>
   </div>
@@ -674,6 +770,11 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
             <div><div class="cert-name">SQL for Data Analysis</div><div class="cert-issuer">Seed IT Solution</div></div>
             <div class="cert-year">2022</div>
           </div>
+          <div class="cert-item">
+            <span class="cert-rank">iv.</span>
+            <div><div class="cert-name">Power BI Data Analyst</div><div class="cert-issuer">Udemy</div></div>
+            <div class="cert-year">2023</div>
+          </div>
         </div>
       </div>
       <div class="r d2">
@@ -681,7 +782,7 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
           <div class="edu-degree">B.Tech — Mechanical Engineering</div>
           <div class="edu-school">CSVTU Bhilai · Chhattisgarh Swami Vivekanand Technical University</div>
           <span class="edu-year">2017 – 2021</span>
-          <div class="edu-note">Post-graduate upskilling in Business Analysis, SQL, Data Analytics, Python Automation and AWS Cloud — 2022 to 2023. Self-directed transition from engineering to analytics.</div>
+          <div class="edu-note">Post-graduate upskilling in Business Analysis, SQL, Data Analytics, Python Automation and AWS Cloud — 2022 to 2023. Self-directed transition from engineering to analytics — now building AI-powered tools and leading cross-functional teams.</div>
         </div>
       </div>
     </div>
@@ -698,7 +799,7 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         <span style="width:28px;height:1px;background:var(--gold);display:inline-block"></span>
       </div>
       <h2 class="contact-title">Let's Work<br>Together.</h2>
-      <p class="contact-sub">Open to full-time roles in Business Analyst, Data Analytics, and Analyst.</p>
+      <p class="contact-sub">Open to full-time roles as Senior Business Analyst, AI Business Analyst, Data Analyst, or Business Intelligence Analyst.</p>
     </div>
     <div class="contact-row r d1">
       <a href="mailto:shubhambelorkar199905@gmail.com" class="contact-link">
@@ -713,24 +814,23 @@ footer{padding:1.8rem 5vw;border-top:1px solid var(--borderfaint);display:flex;a
         <span class="contact-link-icon">in</span>
         <span>linkedin.com/in/shubham-belorkar</span>
       </a>
-      <a href="Shubham_Analyst_(New).pdf" download class="contact-link">
+      <a href="Shubham_SeniorBA_FINAL.pdf" download class="contact-link">
         <span class="contact-link-icon">⬇</span>
         <span>Download CV</span>
       </a>
     </div>
-    <div class="contact-location r d2">📍 Hyderabad, India &nbsp;·&nbsp; Open to <em>On-Site</em> , <em>remote</em> & <em>hybrid roles</em></div>
+    <div class="contact-location r d2">📍 Hyderabad, India &nbsp;·&nbsp; Open to <em>On-Site</em>, <em>Remote</em> &amp; <em>Hybrid</em> roles</div>
   </div>
 </section>
 
 <footer>
   <div class="footer-left">© 2025 <span>Shubham Belorkar</span> · All rights reserved</div>
-  <div class="footer-right">Business Analyst · CFaaS & B2B SaaS · Hyderabad</div>
+  <div class="footer-right">Senior Business Analyst · AI Integration · CFaaS & B2B SaaS · Hyderabad</div>
 </footer>
 
 <button id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Cursor
+<script>
 const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
@@ -740,37 +840,27 @@ document.querySelectorAll('a,button').forEach(el=>{
   el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.opacity='1'});
 });
 
-// Nav
 function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
 
-// Reveal - show everything visible on load immediately
 function revealVisible(){
   document.querySelectorAll('.r:not(.on)').forEach(el=>{
     const rect=el.getBoundingClientRect();
     if(rect.top < window.innerHeight + 150) el.classList.add('on');
   });
 }
-
-// IntersectionObserver for scroll reveals
 const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); }
-  });
-},{threshold:0.01, rootMargin:'0px 0px 0px 0px'});
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
+},{threshold:0.01,rootMargin:'0px 0px 0px 0px'});
 document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+window.addEventListener('load',revealVisible);
+window.addEventListener('scroll',revealVisible,{passive:true});
+setTimeout(revealVisible,300);
+setTimeout(()=>{document.querySelectorAll('.r:not(.on)').forEach(el=>el.classList.add('on'));},1200);
 
-// Run on load and scroll
-window.addEventListener('load', revealVisible);
-window.addEventListener('scroll', revealVisible, {passive:true});
-setTimeout(revealVisible, 300);
-setTimeout(()=>{ document.querySelectorAll('.r:not(.on)').forEach(el=>el.classList.add('on')); }, 1200);
-
-// Scroll top
 const stt=document.getElementById('stt');
 window.addEventListener('scroll',()=>stt.classList.toggle('on',scrollY>500),{passive:true});
 
-// Active nav
 const secs=document.querySelectorAll('section[id]'),navAs=document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll',()=>{
   let cur='';
