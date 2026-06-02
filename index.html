@@ -156,8 +156,8 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to b
 .exp-block-sub{font-size:.75rem;color:var(--mist)}
 .exp-block-right{padding:2rem}
 .exp-block-right ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
-.exp-block-right ul li{font-size:.83rem;color:var(--mist);line-height:1.6;display:flex;align-items:flex-start;gap:.7rem}
-.exp-block-right ul li::before{content:'–';color:var(--gold);flex-shrink:0}
+.exp-block-right ul li{font-size:.83rem;color:var(--mist);line-height:1.6;position:relative;padding-left:1rem;}
+.exp-block-right ul li::before{content:'–';color:var(--gold);position:absolute;left:0;top:0;}
 .exp-block-right ul li strong{color:var(--cream);font-weight:400}
 @media(max-width:680px){.exp-block{grid-template-columns:1fr}.exp-block-left{border-right:none;border-bottom:1px solid var(--border);padding-bottom:1.2rem}}
 
